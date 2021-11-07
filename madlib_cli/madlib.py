@@ -14,16 +14,20 @@ def welcome():
 def read_template(path):
     """Read path and return the data as a giant string."""
 
-    try:
-         file = open(path, 'r')
-         content = file.read()
-         file.close()
-         
-    except FileNotFoundError:
-        content = 'The file not found!'
+    with open(path) as f:
+         return f.read()
+        
 
-    finally:
-        return content
+    # try:
+    #      file = open(path, 'r')
+    #      content = file.read()
+    #      file.close()
+         
+    # except FileNotFoundError:
+    #     content = 'The file not found!'
+
+    # finally:
+    #     return content
 
 def write_file(path, responses):
     """Write a file back to the given path."""
